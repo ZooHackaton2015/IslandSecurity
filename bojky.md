@@ -62,11 +62,14 @@ Naše řešení předpokládá využití poměrně nové technologie Low-Power W
 
 ##### Model SIGFOX
 ![SIGFOX](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/SIGFOX.png) 
+
 Architektura SIGFOX s variantou lokální BTS (momentálně ještě není publikováno řešení). . Vysílače (označené jako *S* s *V*) se připojují na centrální BTS. Ta je odesílá do cloudu a do tohoto cloudu se ranger přihlásí a data stáhne. V případě lokální BTS by bylo možné se i nepřihlašovat k internetu (šipky 2 a 3 by tedy byly nepovinné). V případě globální varianty by začátek šipky 4 nevedl od BTS ale z bubliny internet.
 ##### Model LoRa
 ![lora](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/LoRa.png)
+
 Architektura LoRa je jednodušší v tom smyslu, že není nutné jak připojení k internetu, tak ani centrální BTS (ale klasický vysílač-přijímač). Ranger má stejnou jednotku, jako je umístěna ve vysílačích.
 
+##### Popis
 * [SIGFOX](http://www.sigfox.com/): K tomuto řešení je nutné mít pokrytí v dané lokaci od nějakého operátora se smlouvo s firmou SIGFOX. Jde o obdobu klasických GSM (mobilních) sítí, ale nejsou spolu kompatibilní. Bylo by tedy nutné postavit na ostrově jejich BTS (základovou stanici). Ta navíc momentálně musí být připojena k internetu. Od firmy SimpleCell máme informace, že SIGFOX momentálně vyvijí variantu s lokální sítí bez internetu, ale to je na úrovni státu jako pro Ruskou federaci nebo Jižní Ameriku. Nejsou známé informace o tom, že by bylo možné si vytvořit vlastní cloudy a tak mít lokální sigfox síť. Toto řešení má nicméně výhodu většího dosahu a menší spotřeby. Dále se musí platit měsíční či roční předplatné. Prý by se mohli v budoucnu objevit jakési *microBTS*, ale o tom opět nejsou žádné spolehlivé a dohledatelné informace a momentálně veřejně není dostupný jediný příklad použití této varianty (stejně jako lokální sítě).Byl-li by na ostrově dostupný internet a bylo by-li levné pořídit BTS (s nízkým napájením), pak by toto řešení bylo vhodné. 
 * [LoRa](http://www.microchip.com/design-centers/wireless-connectivity/embedded-wireless/lora-technology): LoRa je varianta LPWAN, která není vázaná na jeden centrální cloud jako SIGFOX - lze tedy vytvořit i lokální síť bez nutnosti připojení k internetu. Má větší spotřebu a menší dosah, potenciálně však stále dostatečný. Dle našich informacích se pohybuje do 20 km na volném prostranství a 2 km v zástavbě. Demonstrace takových zařízení jsou dnes už běžně dostupné (existuje například LoRa Fabian - síť ve městech). LoRa mohou implementovat všichni, tudíž nehrozí že se v případě krachu jedné společnosti zažízení stanou nepoužitelná. Komunikace může být obousměrná a rychlejší (to však nepotřebujeme, ale je dobré to zmínit).
 
