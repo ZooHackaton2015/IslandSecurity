@@ -31,9 +31,10 @@ Vzhledem k tomu, že větší problém než želví vajíčka jsou ptáci, vět�
 
 Celý návrh se dá rozdělit na několik dílčích částí, které je možné řešit odděleně:
 
-1. Provedení bóje - obalu pro celé zařízení a uchycení
-2. Detekce lodi
+1. Detekce lodi
+2. Napájení
 3. Komunikační zařízení
+4. Provedení bóje - obalu pro celé zařízení a uchycení
 
 Následuje komentář a varianty k jednotlivým částem.
 
