@@ -30,6 +30,7 @@ Vzhledem k tomu, že větší problém než želví vajíčka jsou ptáci, vět�
 ![model_buoy](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/boje.png)
 
 Celý návrh se dá rozdělit na několik dílčích částí, které je možné řešit odděleně:
+
 1. Provedení bóje - obalu pro celé zařízení a uchycení
 2. Detekce lodi
 3. Komunikační zařízení
@@ -60,6 +61,7 @@ Toto je nejproblematičtější část. Bude nutné vše otestovat a vyzkoušet.
 Naše řešení předpokládá využití poměrně nové technologie Low-Power Wide-Area Network (respektive jejích reprezentantů). Aktuálně existují prakticky 2 řešení které přicházejí v úvahu. Prvním je SIGFOX, druhým je LoRa. Nebudeme je popisovat do detailů, ale zmíníme jejich výhody a nevýhody. Důvod proč nevybrat stávající technologie jako WiFi, GSM nebo Bluetooth je vysoká spotřeba a nebo nízké dosah (a nízké pokrytí GSM v lokalitě). 
 
 ![SIGFOX](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/SIGFOX.png) 
+
 ![lora](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/LoRa.png)
 
 * [SIGFOX](http://www.sigfox.com/): K tomuto řešení je nutné mít pokrytí v dané lokaci od nějakého operátora se smlouvo s firmou SIGFOX. Jde o obdobu klasických GSM (mobilních) sítí, ale nejsou spolu kompatibilní. Bylo by tedy nutné postavit na ostrově jejich BTS (základovou stanici). Ta navíc momentálně musí být připojena k internetu. Od firmy SimpleCell máme informace, že SIGFOX momentálně vyvijí variantu s lokální sítí bez internetu, ale to je na úrovni státu jako pro Ruskou federaci nebo Jižní Ameriku. Nejsou známé informace o tom, že by bylo možné si vytvořit vlastní cloudy a tak mít lokální sigfox síť. Toto řešení má nicméně výhodu většího dosahu a menší spotřeby. Dále se musí platit měsíční či roční předplatné. Prý by se mohli v budoucnu objevit jakési *microBTS*, ale o tom opět nejsou žádné spolehlivé a dohledatelné informace a momentálně veřejně není dostupný jediný příklad použití této varianty (stejně jako lokální sítě).Byl-li by na ostrově dostupný internet a bylo by-li levné pořídit BTS (s nízkým napájením), pak by toto řešení bylo vhodné. 
@@ -80,6 +82,7 @@ Problémem je členitý terén ostrova, hlavně přijímač u rangera, který je
 
 # Cenový odhad
 Cena se samozřejmě bude odvíjet od vybraných technologií. Zde je jejich přibližný přehled s příklady:
+
 1. Mikrofon - $7 [1](http://www.banggood.com/5Pcs-KY-038-Microphone-Sound-Sensor-Module-For-Arduino-p-953185.html)
 2. Raspberry Pi - $30 
 3. Arduino - $10-30
@@ -95,10 +98,10 @@ Jedna bóje s jedním rangerovým přijímačem by se tedy mohlo pohybovat kolem
 * K napájení by se daly samozřejmě využít solární panely. To však značně stěžuje konstrukční provedení celého řešení a zvyšuje jeho cenu. Možná však, že to bude nevyhnutelné. V případě tvaru bóje do například válce nebo kvádru by to bylo poměrně jednoduché provést. Cena panelů se již pohybuje řádově v desítkách dolarů (např. [zde](http://www.ebay.co.uk/sch/items/?_nkw=40+watt+solar+panel&_sacat=&_ex_kw=&_mPrRngCbx=1&_udlo=&_udhi=&_sop=12&_fpos=&_fspt=1&_sadis=&LH_CAds=&clk_rvr_id=1012026245183&rmvSB=true), nebo pro [RPi](http://www.reuk.co.uk/Solar-Powered-Raspberry-Pi.htm))
 
 # Zdroje
-[využití LoRa - froggy](http://www.froggyfactory.com/froggy/)
-[ceny desek LoRa - froggy](http://www.froggyfactory.com/froggy/shop.php#shop)
-[LoRa Things Network wiki](http://thethingsnetwork.org/wiki/)
-[DIY LoRa GateWay](http://cpham.perso.univ-pau.fr/LORA/RPIgateway.html)
-[LORAIOT](https://www.loriot.io/gateways.html)
-[Testing LoRa module for RPi/Arduino](https://www.cooking-hacks.com/documentation/tutorials/extreme-range-lora-sx1272-module-shield-arduino-raspberry-pi-intel-galileo/)
-[SIGFOX @ lupa.cz](http://www.lupa.cz/clanky/sigfox-internet-veci-bez-internetu-a-jen-pro-nektere-veci/)
+* [využití LoRa - froggy](http://www.froggyfactory.com/froggy/)
+* [ceny desek LoRa - froggy](http://www.froggyfactory.com/froggy/shop.php#shop)
+* [LoRa Things Network wiki](http://thethingsnetwork.org/wiki/)
+* [DIY LoRa GateWay](http://cpham.perso.univ-pau.fr/LORA/RPIgateway.html)
+* [LORAIOT](https://www.loriot.io/gateways.html)
+* [Testing LoRa module for RPi/Arduino](https://www.cooking-hacks.com/documentation/tutorials/extreme-range-lora-sx1272-module-shield-arduino-raspberry-pi-intel-galileo/)
+* [SIGFOX @ lupa.cz](http://www.lupa.cz/clanky/sigfox-internet-veci-bez-internetu-a-jen-pro-nektere-veci/)
