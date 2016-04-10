@@ -1,5 +1,5 @@
 # Problém
-Pytláci chytají ptáky sbírají želví vajíčka. Přijíždějí v lodích, takže cíl je nějak poznat, že někam přijíždí loď a dát to vědět Rangerům. 
+Pytláci chytají ptáky a sbírají želví vajíčka. Přijíždějí v lodích, takže cíl je nějak poznat, že někam přijíždí loď a dát to vědět Rangerům. 
 
 # Řešení
 Technologická řešení narážejí hlavně na problém s napájením a přenosem informace v členitém terénu na delší vzdálenosti (až 10), špatných atmosferických podmínkách jako bouře, vlny, vysoká vlhkost. Pro dosažení řešení je tedy nutné eliminovat hlavně tyto problémy.
