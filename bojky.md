@@ -60,8 +60,9 @@ Toto je nejproblematičtější část. Bude nutné vše otestovat a vyzkoušet.
 
 Naše řešení předpokládá využití poměrně nové technologie Low-Power Wide-Area Network (respektive jejích reprezentantů). Aktuálně existují prakticky 2 řešení které přicházejí v úvahu. Prvním je SIGFOX, druhým je LoRa. Nebudeme je popisovat do detailů, ale zmíníme jejich výhody a nevýhody. Důvod proč nevybrat stávající technologie jako WiFi, GSM nebo Bluetooth je vysoká spotřeba a nebo nízké dosah (a nízké pokrytí GSM v lokalitě). 
 
+##### Model SIGFOX
 ![SIGFOX](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/SIGFOX.png) 
-
+##### Model LoRa
 ![lora](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/LoRa.png)
 
 * [SIGFOX](http://www.sigfox.com/): K tomuto řešení je nutné mít pokrytí v dané lokaci od nějakého operátora se smlouvo s firmou SIGFOX. Jde o obdobu klasických GSM (mobilních) sítí, ale nejsou spolu kompatibilní. Bylo by tedy nutné postavit na ostrově jejich BTS (základovou stanici). Ta navíc momentálně musí být připojena k internetu. Od firmy SimpleCell máme informace, že SIGFOX momentálně vyvijí variantu s lokální sítí bez internetu, ale to je na úrovni státu jako pro Ruskou federaci nebo Jižní Ameriku. Nejsou známé informace o tom, že by bylo možné si vytvořit vlastní cloudy a tak mít lokální sigfox síť. Toto řešení má nicméně výhodu většího dosahu a menší spotřeby. Dále se musí platit měsíční či roční předplatné. Prý by se mohli v budoucnu objevit jakési *microBTS*, ale o tom opět nejsou žádné spolehlivé a dohledatelné informace a momentálně veřejně není dostupný jediný příklad použití této varianty (stejně jako lokální sítě).Byl-li by na ostrově dostupný internet a bylo by-li levné pořídit BTS (s nízkým napájením), pak by toto řešení bylo vhodné. 
