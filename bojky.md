@@ -28,6 +28,7 @@ Vzhledem k tomu, že větší problém než želví vajíčka jsou ptáci, vět�
 
 ### Návrh
 ![model_buoy](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/boje.png)
+
 Celý návrh se dá rozdělit na několik dílčích částí, které je možné řešit odděleně:
 1. Provedení bóje - obalu pro celé zařízení a uchycení
 2. Detekce lodi
@@ -35,7 +36,7 @@ Celý návrh se dá rozdělit na několik dílčích částí, které je možné
 
 Následuje komentář a varianty k jednotlivým částem.
 
-1. Provedení bóje
+#### Provedení bóje
 Bóje musí dlouhodobě odolat slané vodě a vlnám (které by však v *řekách* měli být menší) - šlo by snad i levně vytisknout na 3D tiskárně, stejně tak jako krabičku na elektroniku. Varianty technického řešení detekce a komunikace jsou poměrně malé - orientačně kolem 15x8x5cm (bez baterie) - bóje tedy nemusí být o přiliš větší než klasické bóje. 
 
 Dle velikosti vln v těchto zátokách musí být korektně vyřešené uchycení. Bóje by mohla být i pod vodou uchycená na tak dlouhém laně/řetězu, aby byla těsně pod hladinou a nebyla tak vidět. Zároveň tak, aby byla možná jednoduchá výměna. 
@@ -44,21 +45,25 @@ Ani tvar bóje nemusí být nutně klasický kulový. Například válec a nebo 
 
 *Pozn.*: Řešili jsme i variantu umístění "bóje" mimo vodu, ale varianta ve vodě nám přijde výhodnější. Za prvé je tam méně rušivých zvuků a dle dostupných informací se k nim lze jednoduše dostat. 
 
-2. Detekce lodi
+#### Detekce lodi
 Na detekci jsme uvažovali:
+
 * Mikrofony pod hladinou zaznamenávaly zvuk motorů, případně nějaký akcelerometr...
 * Sonary pod vodou: malý dosah, cena
 * Paprsky nad hladinou: Nemusí je protínat pouze loď, navíc provedení není jednodušší než mikrofony pod vodou.
 
 Jako nejlepší se nám tedy zdá použití buď mikrofonu a nebo nějakého akcelerometru. Mikrofon by byl pravděpodobně jistější, má však větší spotřebu. Detekce by se zapínala například každých pár sekund (opět kvůli spotřebě). Pokud by zařízení detekovalo lodní motor, aktivovalo by hlavní jednotku a ta odeslala signál rangerovi. 
 
-3. Komunikační zařízení
+#### Komunikační zařízení
 Toto je nejproblematičtější část. Bude nutné vše otestovat a vyzkoušet. Vzhledem k použití relativně nových technologií není dostupných příliš mnoho informací například o reálných testech spotřeby a dosahu.
 
 Naše řešení předpokládá využití poměrně nové technologie Low-Power Wide-Area Network (respektive jejích reprezentantů). Aktuálně existují prakticky 2 řešení které přicházejí v úvahu. Prvním je SIGFOX, druhým je LoRa. Nebudeme je popisovat do detailů, ale zmíníme jejich výhody a nevýhody. Důvod proč nevybrat stávající technologie jako WiFi, GSM nebo Bluetooth je vysoká spotřeba a nebo nízké dosah (a nízké pokrytí GSM v lokalitě). 
-    
-    * [SIGFOX](http://www.sigfox.com/): K tomuto řešení je nutné mít pokrytí v dané lokaci od nějakého operátora se smlouvo s firmou SIGFOX. Jde o obdobu klasických GSM (mobilních) sítí, ale nejsou spolu kompatibilní. Bylo by tedy nutné postavit na ostrově jejich BTS (základovou stanici). Ta navíc momentálně musí být připojena k internetu. Od firmy SimpleCell máme informace, že SIGFOX momentálně vyvijí variantu s lokální sítí bez internetu, ale to je na úrovni státu jako pro Ruskou federaci nebo Jižní Ameriku. Nejsou známé informace o tom, že by bylo možné si vytvořit vlastní cloudy a tak mít lokální sigfox síť. Toto řešení má nicméně výhodu většího dosahu a menší spotřeby. Dále se musí platit měsíční či roční předplatné. Prý by se mohli v budoucnu objevit jakési *microBTS*, ale o tom opět nejsou žádné spolehlivé a dohledatelné informace a momentálně veřejně není dostupný jediný příklad použití této varianty (stejně jako lokální sítě).Byl-li by na ostrově dostupný internet a bylo by-li levné pořídit BTS (s nízkým napájením), pak by toto řešení bylo vhodné. ![SIGFOX](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/SIGFOX.png) 
-    * [LoRa](http://www.microchip.com/design-centers/wireless-connectivity/embedded-wireless/lora-technology): LoRa je varianta LPWAN, která není vázaná na jeden centrální cloud jako SIGFOX - lze tedy vytvořit i lokální síť bez nutnosti připojení k internetu. Má větší spotřebu a menší dosah, potenciálně však stále dostatečný. Dle našich informacích se pohybuje do 20 km na volném prostranství a 2 km v zástavbě. Demonstrace takových zařízení jsou dnes už běžně dostupné (existuje například LoRa Fabian - síť ve městech). LoRa mohou implementovat všichni, tudíž nehrozí že se v případě krachu jedné společnosti zažízení stanou nepoužitelná. Komunikace může být obousměrná a rychlejší (to však nepotřebujeme, ale je dobré to zmínit).![lora](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/LoRa.png)
+
+![SIGFOX](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/SIGFOX.png) 
+![lora](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/LoRa.png)
+
+* [SIGFOX](http://www.sigfox.com/): K tomuto řešení je nutné mít pokrytí v dané lokaci od nějakého operátora se smlouvo s firmou SIGFOX. Jde o obdobu klasických GSM (mobilních) sítí, ale nejsou spolu kompatibilní. Bylo by tedy nutné postavit na ostrově jejich BTS (základovou stanici). Ta navíc momentálně musí být připojena k internetu. Od firmy SimpleCell máme informace, že SIGFOX momentálně vyvijí variantu s lokální sítí bez internetu, ale to je na úrovni státu jako pro Ruskou federaci nebo Jižní Ameriku. Nejsou známé informace o tom, že by bylo možné si vytvořit vlastní cloudy a tak mít lokální sigfox síť. Toto řešení má nicméně výhodu většího dosahu a menší spotřeby. Dále se musí platit měsíční či roční předplatné. Prý by se mohli v budoucnu objevit jakési *microBTS*, ale o tom opět nejsou žádné spolehlivé a dohledatelné informace a momentálně veřejně není dostupný jediný příklad použití této varianty (stejně jako lokální sítě).Byl-li by na ostrově dostupný internet a bylo by-li levné pořídit BTS (s nízkým napájením), pak by toto řešení bylo vhodné. 
+* [LoRa](http://www.microchip.com/design-centers/wireless-connectivity/embedded-wireless/lora-technology): LoRa je varianta LPWAN, která není vázaná na jeden centrální cloud jako SIGFOX - lze tedy vytvořit i lokální síť bez nutnosti připojení k internetu. Má větší spotřebu a menší dosah, potenciálně však stále dostatečný. Dle našich informacích se pohybuje do 20 km na volném prostranství a 2 km v zástavbě. Demonstrace takových zařízení jsou dnes už běžně dostupné (existuje například LoRa Fabian - síť ve městech). LoRa mohou implementovat všichni, tudíž nehrozí že se v případě krachu jedné společnosti zažízení stanou nepoužitelná. Komunikace může být obousměrná a rychlejší (to však nepotřebujeme, ale je dobré to zmínit).
 
 Testování bychom tedy doporučili za použití technologie LoRa, jelikož v cílové lokace je alespoň teoreticky její fungování možné ihned s dostupnými prostředky. Pokud by se varianta ukázala jako neprůchozí, stálo by za to zkusit SIGFOX.
 
