@@ -1,2 +1,2 @@
-# islandSecurity
-Project documentation for protecting Island with endemic species
+# Island Security
+This contains *technical* documentation for our project
