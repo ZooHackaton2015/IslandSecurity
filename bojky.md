@@ -62,8 +62,10 @@ Naše řešení předpokládá využití poměrně nové technologie Low-Power W
 
 ##### Model SIGFOX
 ![SIGFOX](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/SIGFOX.png) 
+Architektura SIGFOX s variantou lokální BTS (momentálně ještě není publikováno řešení). . Vysílače (označené jako *S* s *V*) se připojují na centrální BTS. Ta je odesílá do cloudu a do tohoto cloudu se ranger přihlásí a data stáhne. V případě lokální BTS by bylo možné se i nepřihlašovat k internetu (šipky 2 a 3 by tedy byly nepovinné). V případě globální varianty by začátek šipky 4 nevedl od BTS ale z bubliny internet.
 ##### Model LoRa
 ![lora](https://raw.githubusercontent.com/ZooHackaton2015/IslandSecurity/master/imgs/LoRa.png)
+Architektura LoRa je jednodušší v tom smyslu, že není nutné jak připojení k internetu, tak ani centrální BTS (ale klasický vysílač-přijímač). Ranger má stejnou jednotku, jako je umístěna ve vysílačích.
 
 * [SIGFOX](http://www.sigfox.com/): K tomuto řešení je nutné mít pokrytí v dané lokaci od nějakého operátora se smlouvo s firmou SIGFOX. Jde o obdobu klasických GSM (mobilních) sítí, ale nejsou spolu kompatibilní. Bylo by tedy nutné postavit na ostrově jejich BTS (základovou stanici). Ta navíc momentálně musí být připojena k internetu. Od firmy SimpleCell máme informace, že SIGFOX momentálně vyvijí variantu s lokální sítí bez internetu, ale to je na úrovni státu jako pro Ruskou federaci nebo Jižní Ameriku. Nejsou známé informace o tom, že by bylo možné si vytvořit vlastní cloudy a tak mít lokální sigfox síť. Toto řešení má nicméně výhodu většího dosahu a menší spotřeby. Dále se musí platit měsíční či roční předplatné. Prý by se mohli v budoucnu objevit jakési *microBTS*, ale o tom opět nejsou žádné spolehlivé a dohledatelné informace a momentálně veřejně není dostupný jediný příklad použití této varianty (stejně jako lokální sítě).Byl-li by na ostrově dostupný internet a bylo by-li levné pořídit BTS (s nízkým napájením), pak by toto řešení bylo vhodné. 
 * [LoRa](http://www.microchip.com/design-centers/wireless-connectivity/embedded-wireless/lora-technology): LoRa je varianta LPWAN, která není vázaná na jeden centrální cloud jako SIGFOX - lze tedy vytvořit i lokální síť bez nutnosti připojení k internetu. Má větší spotřebu a menší dosah, potenciálně však stále dostatečný. Dle našich informacích se pohybuje do 20 km na volném prostranství a 2 km v zástavbě. Demonstrace takových zařízení jsou dnes už běžně dostupné (existuje například LoRa Fabian - síť ve městech). LoRa mohou implementovat všichni, tudíž nehrozí že se v případě krachu jedné společnosti zažízení stanou nepoužitelná. Komunikace může být obousměrná a rychlejší (to však nepotřebujeme, ale je dobré to zmínit).
@@ -84,13 +86,15 @@ Problémem je členitý terén ostrova, hlavně přijímač u rangera, který je
 # Cenový odhad
 Cena se samozřejmě bude odvíjet od vybraných technologií. Zde je jejich přibližný přehled s příklady:
 
-1. Mikrofon - $7 [1](http://www.banggood.com/5Pcs-KY-038-Microphone-Sound-Sensor-Module-For-Arduino-p-953185.html)
+1. Mikrofon - $7 ([zde](http://www.banggood.com/5Pcs-KY-038-Microphone-Sound-Sensor-Module-For-Arduino-p-953185.html))
 2. Raspberry Pi - $30 
-3. Arduino - $10-30
+3. Arduino - $10-30 
 4. Tisk bóje - $30 (za materiál)
-5. LoRa shield - $55
-6. SIGFOX shield - $50 (nižší při větších odběrech, řádově stovky až tisíce)
+5. LoRa shield - $45 ([zde](https://www.cooking-hacks.com/sx1272-lora-module-for-arduino-raspberry-pi-intel-galileo-868-mhz))
+6. SIGFOX shield - $55 (nižší při větších odběrech, řádově stovky až tisíce klesá cena třeba až na pár dolarů) [zde](https://www.cooking-hacks.com/sigfox-module-for-arduino-waspmote-raspberry-pi-intel-galileo-868-mhz-7184)
 7. Uchycení, krabičky, drátky, pájení... - $20
+8. [Lora Starter kit](https://www.cooking-hacks.com/lorawan-iot-starter-kit-868)
+9. [SIGFOX](https://www.cooking-hacks.com/waspmote-sigfox-sma-4-5-dbi-868)
 
 Jedna bóje s jedním rangerovým přijímačem by se tedy mohlo pohybovat kolem $250. Každá další bóje pak kolem $100. 
 
